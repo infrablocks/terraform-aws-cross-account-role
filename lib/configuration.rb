@@ -44,9 +44,6 @@ class Configuration
                 public_address: public_address,
                 project_directory: project_directory,
                 deployment_identifier: deployment_identifier_for(overrides),
-                public_gpg_key_path: public_gpg_key_path_for(overrides),
-                private_gpg_key_path: private_gpg_key_path_for(overrides),
-                gpg_key_passphrase: gpg_key_passphrase_for(overrides)
             }))
   end
 end
