@@ -16,20 +16,20 @@ describe 'cross account role' do
 
   it 'should be assumable by the provided accounts' do
     actual = JSON.parse(
-        URI.decode(subject.assume_role_policy_document),
-        symbolize_names: true)
+      CGI.unescape(subject.assume_role_policy_document),
+      symbolize_names: true)
     expected = {
-        Version: "2012-10-17",
-        Statement: [
-            {
-                Sid: "",
-                Effect: "Allow",
-                Action: "sts:AssumeRole",
-                Principal: {
-                    AWS: "arn:aws:iam::#{assumable_by_account_ids[0]}:root"
-                }
-            }
-        ]
+      Version: "2012-10-17",
+      Statement: [
+        {
+          Sid: "",
+          Effect: "Allow",
+          Action: "sts:AssumeRole",
+          Principal: {
+            AWS: "arn:aws:iam::#{assumable_by_account_ids[0]}:root"
+          }
+        }
+      ]
     }
 
     expect(actual).to(eq(expected))
