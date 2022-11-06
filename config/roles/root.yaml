@@ -1,0 +1,10 @@
+---
+configuration_directory: "%{cwd}/spec/unit/infra/root"
+state_file: "%{cwd}/state/root.tfstate"
+vars:
+  region: "%{hiera('region')}"
+
+  role_name: "cross-account-test-role"
+  policy_arn: "arn:aws:iam::aws:policy/AmazonEC2ReadOnlyAccess"
+  assumable_by_account_ids:
+    - "176145454894"
